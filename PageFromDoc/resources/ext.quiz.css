@@ -1,0 +1,187 @@
+.quiz .settings input.numerical {
+	width: 3em;
+}
+
+* > .quiz .header .questionId {
+	text-indent: -1.5em;
+}
+
+.quiz table.object {
+	background-color: transparent;
+}
+
+.quiz .settings td {
+	padding: 0.1em 0.4em 0.1em 0.4em;
+}
+
+.quiz table.settings {
+	background-color: transparent;
+}
+
+.quiz .sign {
+	text-align: center;
+}
+
+.quiz .question {
+	margin-left: 2em;
+}
+
+.quiz .margin {
+	padding-left: 20px;
+}
+
+.quiz .margin.right {
+	background-color: #14866d;
+}
+
+.quiz .margin.wrong {
+	background-color: #d33;
+}
+
+.quiz .margin.correction {
+	background-color: #f9f9f9;
+}
+
+.quiz .margin.NA {
+	background-color: #36c;
+}
+
+.quiz .margin.error {
+	background-color: #fc3;
+}
+
+.quiz .error {
+	color: #222;
+	font-size: inherit;
+}
+
+/* This should be based on content direction, not interface direction */
+/* @noflip */
+.mw-content-ltr .quiz .question .border {
+	border-width: 0 0 0 3px;
+}
+
+/* @noflip */
+.mw-content-rtl .quiz .question .border {
+	border-width: 0 3px 0 0;
+}
+
+.quiz .question .border.right,
+.quiz .question .border.wrong,
+.quiz .question .border.correction,
+.quiz .question .border.NA,
+.quiz .question .border.error {
+	border-style: solid;
+}
+
+.quiz .question .border.right {
+	border-color: #14866d;
+}
+
+.quiz .question .border.wrong {
+	border-color: #d33;
+}
+
+.quiz .question .border.correction {
+	border-color: #f9f9f9;
+}
+
+.quiz .question .border.NA {
+	border-color: #36c;
+}
+
+.quiz .question .border.error {
+	border-color: #fc3;
+}
+
+.quiz .question .check.right {
+	outline: 3px solid #14866d;
+	*border: 3px solid #14866d;
+}
+
+.quiz .question .check.wrong {
+	outline: 3px solid #d33;
+	*border: 3px solid #d33;
+}
+
+.quiz .question .check.correction {
+	outline: 3px solid #f9f9f9;
+	*border: 3px solid #f9f9f9;
+}
+
+.quiz .question .check.NA {
+	outline: 3px solid #36c;
+	*border: 3px solid #36c;
+}
+
+.quiz .question .check.error {
+	outline: 3px solid #fc3;
+	*border: 3px solid #fc3;
+}
+
+.quiz .header .questionId {
+	font-size: 1.1em;
+	font-weight: bold;
+	float: left;
+}
+
+.quiz a.input em {
+	color: #000;
+	background-color: #dfdfdf;
+	margin-right: 1px;
+}
+
+.quiz a.input input {
+	padding-left: 2px;
+	border: 0;
+}
+
+.quiz .quizForm {
+	position: relative;
+}
+
+.quiz .correction {
+	background-color: #f9f9f9;
+}
+
+.quiz .correction.unselected {
+	display: none;
+}
+
+.quiz .object .correction {
+	background-color: transparent;
+}
+
+.quiz a.input span.correction {
+	padding: 3px;
+	margin: 0;
+	list-style-type: none;
+	display: none;
+	background-color: #f9f9f9;
+}
+
+.quiz a.input,
+.quiz a.input:hover,
+.quiz a.input:active,
+.quiz a.input:visited {
+	text-decoration: none;
+	color: #000;
+	outline: 0;
+}
+
+.quiz a.input span {
+	outline: #7f9db9 solid 1px;
+	*border: 1px solid #7f9db9;
+}
+
+.quiz a.input:active span.correction,
+.quiz a.input:focus span.correction {
+	display: inline;
+	position: absolute;
+	margin: 1.8em 0 0 0.1em;
+}
+
+.client-nojs .quiz .shuffle,
+.client-nojs .quiz .reset {
+	display: none;
+}

@@ -1,0 +1,24 @@
+{
+	"name": "PageFromDoc",
+	"version": "1.0",
+	"author": "Spencer Luck",
+	"descriptionmsg": "pagefromdoc-desc",
+	"type": "specialpage",
+	"manifest_version": 2,
+	"requires": {
+		"extensions": {
+			"QuizExtended": "*"
+		}
+	},
+	"MessagesDirs": {
+		"ExtensionName": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"PageFromDoc":"includes//PageFromDoc.php"
+	},
+	"SpecialPages" : {
+		"PageFromDoc": "PageFromDoc"
+	}
+}

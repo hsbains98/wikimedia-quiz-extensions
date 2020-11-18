@@ -1,0 +1,18 @@
+<p>
+	{{{desc}}}
+</p>
+<form method="post">
+	<label for="username">Username:</label>
+	<input type="text" id="username" name="username">
+	<input type="submit" value="Submit" width="50%">
+</form>
+{{#error}}
+<p>
+	{{{.}}}
+</p>
+{{/error}}
+{{#teacher}}
+<p>
+	Your current teacher is {{{.}}}.
+</p>
+{{/teacher}}

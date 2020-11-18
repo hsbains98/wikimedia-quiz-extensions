@@ -1,0 +1,102 @@
+{
+	"name": "QuizExtended",
+	"version": "1.0",
+	"author": "Spencer Luck, Louis-Rémi Babe",
+	"url": "https://www.mediawiki.org/wiki/Extension:Quiz",
+	"descriptionmsg": "quiz_desc",
+	"license-name": "GPL-2.0-or-later",
+	"type": "other",
+	"config": {
+		"RequireRealName": true
+	},
+	"namespaces": [
+		{
+			"id": 864134,
+			"constant": "NS_QUIZ",
+			"name": "Quiz"
+		}
+	],
+	"ConfigRegistry": {
+		"QuizExtended": "GlobalVarConfig::newInstance"
+	},
+	"MessagesDirs": {
+		"QuizExtension": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"Quiz": "Quiz.class.php",
+		"Question": "Question.php",
+		"QuizHooks": "Quiz.hooks.php",
+		"SpecialTeacher": "SpecialTeacher.php",
+		"CheckGrades": "CheckGrades.php",
+		"StudentOverview": "StudentOverview.php",
+		"TeacherSignupPageAuthenticationRequest": "TeacherSignupPageAuthenticationRequest.php",
+		"TeacherSignupPageSecondaryAuthenticationProvider": "TeacherSignupPageSecondaryAuthenticationProvider.php",
+		"RequireRealName": "RequireRealName.php"
+	},
+	"AuthManagerAutoConfig": {
+		"secondaryauth": {
+			"TeacherSignupPageSecondaryAuthenticationProvider": {
+				"class": "TeacherSignupPageSecondaryAuthenticationProvider"
+			}
+		}
+	},
+	"ResourceModules": {
+		"ext.quiz": {
+			"scripts": "ext.quiz.js",
+			"targets": [ "desktop", "mobile" ]
+		},
+		"ext.quiz.styles": {
+			"styles": "ext.quiz.css",
+			"targets": [ "desktop", "mobile" ]
+		},
+		"ext.grades": {
+			"styles": "ext.grades.css",
+			"scripts": "ext.grades.js",
+			"targets": [ "desktop", "mobile" ]
+		},
+		"ext.createAccount": {
+			"scripts": "ext.createAccount.js",
+			"targets": [ "desktop", "mobile" ]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "QuizExtended/modules"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"QuizHooks::onParserFirstCallInit"
+		],
+		"ParserAfterTidy": [
+			"Quiz::resetQuizID"
+		],
+		"LoadExtensionSchemaUpdates": [
+			"QuizHooks::loadExtensionSchemaUpdates"
+		],
+		"BeforePageDisplay": [
+			"RequireRealName::beforePageDisplay"
+		]
+	},
+	"SpecialPages" : {
+		"SelectTeacher": "SpecialTeacher",
+		"CheckGrades": "CheckGrades",
+		"StudentOverview": "StudentOverview"
+	},
+	"AvailableRights": [
+		"quiz"
+	],
+	"GroupPermissions": {
+		"*": {
+			"quiz":false
+		},
+		"user": {
+			"quiz":true
+		},
+		"sysop": {
+			"quiz":true
+		}
+	},
+	"manifest_version": 1
+}

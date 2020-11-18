@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Paucabot",
+			"SMP",
+			"Xavier Dengra",
+			"Jaumeortola"
+		]
+	},
+	"quiz_desc": "Permet la creació de qüestionaris",
+	"quiz_addedPoints": "Puntuació per resposta correcta",
+	"quiz_cutoffPoints": "Puntuació per resposta incorrecta",
+	"quiz_ignoreCoef": "Ignora els coeficients de les qüestions",
+	"quiz_shuffle": "Preguntes aleatòries",
+	"quiz_colorRight": "Correcta",
+	"quiz_colorWrong": "Incorrecte",
+	"quiz_colorNA": "No contestada",
+	"quiz_colorError": "Error de sintaxi",
+	"quiz_correction": "Corregeix",
+	"quiz_score": "La vostra puntuació és $1 / $2",
+	"quiz_points": "$1 | {{PLURAL:$2|1 punt|$2 punts}}",
+	"quiz_reset": "Reinicia"
+}

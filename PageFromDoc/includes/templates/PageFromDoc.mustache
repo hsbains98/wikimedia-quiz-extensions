@@ -1,0 +1,43 @@
+{{^confirm}}
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="file" id="file">
+  <label for="grade">What grade is it for?</label>
+  <select id="grade" name="grade">
+		<option value="-1">None</option>
+		<option value="3">3rd Grade</option>
+		<option value="4">4th Grade</option>
+		<option value="5">5th Grade</option>
+		<option value="6">6th Grade</option>
+		<option value="7">7th Grade</option>
+		<option value="8">8th Grade</option>
+  </select>
+  <input type="submit" value="Upload" name="submit">
+</form>
+<p>
+Make sure the docx file has these things:
+<p>
+<ul>
+<li>Every article title and body is seperated by a new line</li>
+<li>The body has no new lines in it</li>
+<li>The questions and answers are seperated by new lines</li>
+<li>The questions only have four answers</li>
+<li>The answer key starts with "Answer Key" on its own line and each letter is on its own line</li>
+
+</ul>
+{{/confirm}}
+{{#confirm}}
+<form method="post" style="display:inline;">
+Does this look correct? 
+<input type="submit" value="Yes" style="min-width:50px">
+<input type="hidden" id="pages" name="pages" value="{{{pages}}}">
+</form>
+&nbsp;<button onclick="window.location = window.location.href;" style="min-width:50px">No</button>
+{{/confirm}}
+<br>
+<br>
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>

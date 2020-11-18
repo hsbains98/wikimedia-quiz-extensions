@@ -1,0 +1,6 @@
+.grade-table {
+	text-align: center;
+}
+.zebra tr:nth-child(even) {
+	background-color: #ebebeb;
+}

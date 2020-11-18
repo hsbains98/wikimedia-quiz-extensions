@@ -1,0 +1,94 @@
+<table class="wikitable grade-table" style="display: inline;"">
+	<tr>
+		<th>Past Week</th>
+		<th>Past Month</th>
+		<th>All</th>
+	</tr>
+  	<tr>
+		{{# average}}
+    	<td>
+			Total Average: {{{total}}}%
+			<table class="wikitable grade-table">
+				<tr>
+					<th>Question</th>
+					<th>Average</th>
+				</tr>
+				{{# questions}}
+				<tr>
+					<td>{{{number}}}</td>
+					<td>{{{total}}}%</td>
+				</tr>
+				{{/ questions}}
+			</table>
+		</td>
+		{{/ average}}
+	</tr>
+</table>
+<div style="display: inline;" class="dropdown-hide">
+	<button type="button" onclick="mw.toggleDropdown(this)" style="display: inline;">Help</button>
+	<div id="help">
+		<p>
+			{{{help}}}
+		</p>
+	</div>
+</div>
+
+<form style="padding-top: 11px;">
+	<label for="selection">Filter by</label>
+	<select name="selection">
+		<option value="username" {{{username}}}>Username</option>
+		<option value="real-name" {{{real-name}}}>Real Name</option>
+		<option value="page" {{{page}}}>Page</option>
+	</select> :
+	<input type="text" name="filter" value="{{{formText}}}"> in 
+	<select id="grade" name="grade">
+	{{# grades}}
+		<option value="-1" {{{a-1}}}>All Grades</option>
+		<option value="3" {{{a3}}}>3rd Grade</option>
+		<option value="4" {{{a4}}}>4th Grade</option>
+		<option value="5" {{{a5}}}>5th Grade</option>
+		<option value="6" {{{a6}}}>6th Grade</option>
+		<option value="7" {{{a7}}}>7th Grade</option>
+		<option value="8" {{{a8}}}>8th Grade</option>
+	{{/ grades}}
+	</select>
+	<input type="submit" value="Submit" width="150%">
+</form>
+
+
+<table width="100%" class="wikitable grade-table zebra">
+	<tr>
+		<th style="width:35%">Username/Real Name</th>
+		<th style="width:30%">Page</th>
+		<th style="width:5%">Grade</th>
+		<th style="width:20%">Score</th>
+		<th style="width:15%; min-width:10em">Date</th>
+	</tr>
+	{{# people}}
+  	<tr>
+    	<td><a href="#" onclick="mw.gotoFormUrl(this, 'username')">{{{username}}}</a>/<a href="#" onclick="mw.gotoFormUrl(this, 'real-name')">{{{real-name}}}</a></td>
+    	<td><a href="#" onclick="mw.gotoFormUrl(this, 'page')">{{{page}}}</a></td>
+    	<td>{{{grade}}}</td>
+    	<td class="dropdown-hide">
+			<button type="button" onclick="mw.toggleDropdown(this)">{{{score}}}%</button>
+			<div class="scores">
+			{{# scores}}
+				<div class="{{{state}}}">
+					<p>{{{number}}}</p>
+				</div>
+			{{/ scores}}
+			</div>
+		</td>
+    	<td>
+		<script>
+			var date = new Date({{{date}}}000);
+			date = date.toLocaleDateString() + ", " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+			var p = document.createElement('p');
+			p.innerText = date;
+			document.currentScript.parentNode.replaceChild(p, document.currentScript);
+		</script>
+		</td>
+	</tr>
+	{{/ people}}
+</table>
+

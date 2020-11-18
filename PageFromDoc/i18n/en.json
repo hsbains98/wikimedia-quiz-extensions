@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Spencer Luck"
+		]
+	},
+	"pagefromdoc": "Page From Document",
+	"pagefromdoc-desc": "This makes a page that takes a docx file and automatically makes pages and quizzes from it."
+}

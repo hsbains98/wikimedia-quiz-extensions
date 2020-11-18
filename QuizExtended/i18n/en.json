@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Louis-Rémi Babe <lrbabe@gmail.com>",
+			"Spencer Luck"
+		]
+	},
+	"quiz_desc": "Quiz extension from Louis-Rémi Babe with a Learning Management System added on",
+	"quiz_addedPoints": "{{PLURAL:$1|Point|Points}} added for a correct answer:",
+	"quiz_cutoffPoints": "{{PLURAL:$1|Point|Points}} for a wrong answer:",
+	"quiz_ignoreCoef": "Ignore the questions' coefficients:",
+	"quiz_shuffle": "Shuffle questions",
+	"quiz_colorRight": "Right",
+	"quiz_colorWrong": "Wrong",
+	"quiz_colorNA": "Not answered",
+	"quiz_colorError": "Syntax error",
+	"quiz_correction": "Submit",
+	"quiz_score": "Your score is $1 / $2",
+	"quiz_points": "$1 | {{PLURAL:$2|1 point|$2 points}}",
+	"quiz_reset": "Reset",
+
+	"selectteacher": "Select Your Teacher",
+	"selectteacher-desc": "Allows students to select their teacher",
+	"selectteacher-top": "Enter your teacher's username below.",
+	"selectteacher-name-error": "Could not find a teacher named \"$1\", check spelling and capitalization.",
+	"selectteacher-default-error": "There was an error",
+	"selectteacher-no-teacher": "You do not currently have a teacher.",
+
+	"checkgrades": "Check Grades",
+	"checkgrades-desc": "Allows students to check their grades or teachers to check their class's grades.",
+	"checkgrades-help": "Using the filter by box, you can restrict the summary of the grades on the top to just the average of one person or one page. If you click on a name or page name it will automatically filter it to that person/page.",
+
+	"studentoverview": "Student Overview",
+	"studentoverview-desc": "Lets teachers see all their student and grades in one place.",
+
+	"quiz-teacher-account-creation": "Are you a teacher?"
+}

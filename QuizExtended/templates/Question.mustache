@@ -1,0 +1,13 @@
+<div class="question">
+	<div class="header">
+		{{#if question.numdis }}
+			<span class="questionId">{{ question.id }}</span>
+		{{/if}}
+		<span class="questionText">{{{ question.text }}}</span>
+	</div>
+	<table class="object border {{ state.state }}" title="{{ state.tableTitle }}">
+		<tbody>
+			{{{ question.answers }}}
+		</tbody>
+	</table>
+</div>

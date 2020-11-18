@@ -1,0 +1,17 @@
+<table width="70%" class="wikitable grade-table zebra sortable">
+	<tr>
+		<th style="width:55%">Username/Real Name</th>
+		<th style="width:15%">Past Week</th>
+		<th style="width:15%">Past Month</th>
+		<th style="width:15%">Total</th>
+	</tr>
+	{{# people}}
+  	<tr>
+    	<td><a href="#" onclick="mw.gotoGradeView(this, 'username')">{{{username}}}</a>/<a href="#" onclick="mw.gotoGradeView(this, 'real-name')">{{{real-name}}}</a></td>
+		<td><p>{{{week}}}%</p></td>
+		<td><p>{{{month}}}%</p></td>
+		<td><p>{{{total}}}%</p></td>
+	</tr>
+	{{/ people}}
+</table>
+

@@ -1,0 +1,36 @@
+<div class="quiz">
+	{{^img}}
+		<form id="quiz{{ quiz.id }}" class="quizForm" method="post" action="#quiz{{ quiz.id }}">
+			<div style="display:inline-flex">
+				{{#settingsTable }}
+					<table class="settings">{{{ . }}}</table>
+				{{/settingsTable }}
+			</div>
+			<input type="hidden" name="quizId" value="{{ quiz.id }}" />
+			<div class="quizQuestions">
+				{{{ quiz.questions }}}
+			</div>
+			<p>
+				<input type="submit" value="{{ wfMessage.quiz_correction }}" {{#preview}}disabled{{/preview}}/>
+				{{#if quiz.beingCorrected }}
+					<input class="reset" type="submit" value="{{ wfMessage.quiz_reset }}">
+				{{/if}}
+			</p>
+			{{#if quiz.beingCorrected }}
+				<span class="correction">
+					{{{ wfMessage.quiz_score }}}
+				</span>
+			{{/if}}
+		</form>
+	{{/img}}
+	{{# img }}
+		<p>
+			<img src="{{ . }}" style="height: 12em; width: auto;">
+		</p>
+	{{/ img }}
+	{{# test }}
+		<p>
+			{{ . }}
+		</p>
+	{{/ test }}
+</div>

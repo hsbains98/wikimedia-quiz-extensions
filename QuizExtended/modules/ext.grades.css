@@ -1,0 +1,59 @@
+.grade-table {
+	text-align: center;
+}
+.zebra tr:nth-child(even) {
+	background-color: #ebebeb;
+}
+
+div.scores {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	margin-top: 5px;
+}
+
+div.scores div {
+	border: 2px solid;
+	width: 100%;
+}
+
+div.scores div:nth-child(even) {
+	border: none;
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+}
+
+div.right {
+	background-color: green;
+}
+
+div.wrong {
+	background-color: red;
+}
+
+.dropdown-hide div {
+	display: none;
+}
+
+#help p {
+	margin: 3px;
+	padding: 3px;
+	background-color: lightgrey;
+	max-width: 40%;
+	border: 3px solid black;
+}
+
+@media print {
+	.dropdown-show div {
+		display: none;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	form {
+		display: none;
+	}
+}
+ 
