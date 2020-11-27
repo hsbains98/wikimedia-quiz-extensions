@@ -8,6 +8,13 @@ Install the wikimedia software
 
 Clone/download into the `..\server\extensions\` folder
 
+Add
+```
+wfLoadExtension( 'QuizExtended' );
+wfLoadExtension( 'PageFromDoc' );
+```
+into `LocalSettings.php`
+
 Use Wikimedia's [update page](https://www.mediawiki.org/wiki/Manual:Upgrading#Web_browser) to run the sql
 
 ## Usage
