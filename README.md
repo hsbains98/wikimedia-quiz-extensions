@@ -2,11 +2,18 @@
 Two extensions for WikiMedia that provides quizzes and lets you import quizzes from .docx files.
 
 
-## Intallation
+## Installation
 
 Install the wikimedia software
 
-Clone/download into the ..\server\extensions\ folder
+Clone/download into the `..\server\extensions\` folder
+
+Add
+```
+wfLoadExtension( 'QuizExtended' );
+wfLoadExtension( 'PageFromDoc' );
+```
+into `LocalSettings.php`
 
 Use Wikimedia's [update page](https://www.mediawiki.org/wiki/Manual:Upgrading#Web_browser) to run the sql
 
