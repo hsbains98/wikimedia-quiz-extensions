@@ -18,14 +18,14 @@ CREATE TABLE IF NOT EXISTS /*_*/qz_score
 			ON DELETE CASCADE
 )/*$wgDBTableOptions*/;
 
-CREATE INDEX sc_score ON /*_*/qz_score (sc_user_id, sc_page_id, sc_percent);
-CREATE INDEX sc_raw_data ON /*_*/qz_score (sc_user_id, sc_page_id, sc_percent, sc_data, sc_timestamp, sc_grade);
+CREATE INDEX IF NOT EXISTS sc_score ON /*_*/qz_score (sc_user_id, sc_page_id, sc_percent);
+CREATE INDEX IF NOT EXISTS sc_raw_data ON /*_*/qz_score (sc_user_id, sc_page_id, sc_percent, sc_data, sc_timestamp, sc_grade);
 
 CREATE TABLE IF NOT EXISTS /*_*/qz_teacher
 (
 	`tc_id` int(10) UNSIGNED NOT NULL,
 
-	CONSTRAINT `tc_pk` PRIMARY KEY `tc_id`,
+	CONSTRAINT `tc_pk` PRIMARY KEY (`tc_id`),
 	CONSTRAINT `tc_fk_user` FOREIGN KEY (`tc_id`) REFERENCES /*_*/user(`user_id`)
 			ON UPDATE CASCADE
 			ON DELETE CASCADE
