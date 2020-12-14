@@ -7,7 +7,7 @@ class PageFromDoc extends SpecialPage {
 	function __construct() {
 		parent::__construct('PageFromDoc', 'createpage');
 	}
-	
+
 	function execute($par) {
 		define('NOTMADE', '123NOTCOMPLETED123');
 
@@ -20,13 +20,13 @@ class PageFromDoc extends SpecialPage {
 		$pages = $request->getText("pages");
 		$user = $this->mContext->getUser();
 		$filepath = $created = false;
-		
+
 		if ($pages) { // if they have confirmed the creation
 			$htmls = $this->parseDocSecond(json_decode(htmlspecialchars_decode($pages), true), false);
 			$created = $this->createPages($htmls, $user);
 		} else {
 			$filepath = $request->getFileTempname("file");
-			
+
 			$pages = null;
 			$grade = $request->getText("grade");
 
@@ -34,9 +34,9 @@ class PageFromDoc extends SpecialPage {
 				$pages = $this->parseDocFirst($filepath, $grade ? $grade : false);
 			}
 		}
-		
+
 		$templateParser = new TemplateParser(__DIR__ . '/templates');
-		
+
 		$html = $templateParser->processTemplate(
 			'PageFromDoc',
 			[
@@ -44,7 +44,7 @@ class PageFromDoc extends SpecialPage {
 				'pages' => htmlspecialchars(json_encode($pages))
 			]
 		);
-		
+
 		if ($filepath) { // make the preview for the quizzes
 			$html2 = implode(str_repeat('-', 75) . "<br>", $this->parseDocSecond($pages, true));
 			$this->addWikiTextAll($output, $html2);
@@ -81,7 +81,7 @@ class PageFromDoc extends SpecialPage {
 
 		$zip = zip_open($filepath);
 
-		if (!(!$zip || is_numeric($zip))) { // reading the doc file which is just a zip in disguise 
+		if (!(!$zip || is_numeric($zip))) { // reading the doc file which is just a zip in disguise
 
 			while ($zip_entry = zip_read($zip)) {
 
@@ -116,14 +116,14 @@ class PageFromDoc extends SpecialPage {
 
 		$split = [];
 
-		for ($i = 0; count($rawsplit) > $i; $i++) {
+		for ($i = 0; $i < count($rawsplit); $i++) {
 			if (preg_match('/\w/',$rawsplit[$i])) { // get rid of any empty lines
 				$split[] = $rawsplit[$i];
 			}
 		}
 		for ($i = 0; count($split) > $i; $i++) { // state machine to parse the doc
 			$line = $split[$i];
-			$line = preg_replace('/^[1-9.)(:-]*\s*/', '', $line); //get rid of any "2. " or "2) " 
+			$line = preg_replace('/^[1-9.)(:-]*\s*/', '', $line); //get rid of any "2. " or "2) "
 			switch($state) {
 				case 'title':
 					$pages['titles'][$j] = $line;
@@ -180,7 +180,7 @@ class PageFromDoc extends SpecialPage {
 
 			for ($j = 0; count($pages['questions'][$i]) > $j; $j++) { // this formats it into quiz extension format
 				$questions[$j] = ['question' => $pages['questions'][$i][$j][0], 'ans' => []];
-				
+
 				for ($k = 0; count($pages['questions'][$i][$j][1]) > $k; $k++) {
 					$text = ($k == ord(strtoupper($pages['answers'][$i][$j])) - 65 ? '+ ' : '- ') . $pages['questions'][$i][$j][1][$k];
 
@@ -191,7 +191,7 @@ class PageFromDoc extends SpecialPage {
 				}
 			}
 			$templateParser = new TemplateParser(__DIR__ . '/templates');
-			
+
 							// quiz extension does not work with carriage returns
 			$html[] = preg_replace("/[\r]/", "", $templateParser->processTemplate(
 				$preview ? 'QuizDisplay' : 'Quiz',
